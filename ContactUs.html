@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0">
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;500;600;700&display=swap');
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Fira Sans', sans-serif;
+    }
+    
+    body {
+      background-image: url("bg.png");
+    }
+    
+    header {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100%;
+      z-index: 1;
+      padding: 20px;
+      background-color: #0000004d;
+    }
+    
+    header .navbar {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+    .navbar .menu-links {
+      display: flex;
+      align-items: center;
+      list-style: none;
+      gap: 30px;
+    }
+    
+    .navbar .menu-links li a {
+      color: #fff;
+      font-weight: 500;
+      text-decoration: none;
+      transition: 0.2s ease;
+    }
+    
+    .navbar .menu-links .language-item a {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+    
+    .navbar .menu-links .language-item span {
+      font-size: 1.3rem;
+    }
+    
+    .navbar .menu-links li a:hover {
+      color: #B69E87;
+    }
+    
+    .navbar .menu-links .join-btn a {
+      border: 1px solid #fff;
+      padding: 8px 15px;
+      border-radius: 4px;
+    }
+    
+    .navbar .menu-links .join-btn a:hover {
+      color: #fff;
+      border-color: transparent;
+      background: #B69E87;
+    }
+    
+    .section {
+      height: 100vh;
+      background-position: center;
+      background-size: cover;
+      position: relative;
+      display: flex;
+      padding: 0 20px;
+      align-items: center;
+    }
+    
+    .section .content {
+      max-width: 1280px;
+      margin: 0 auto 40px;
+      width: 100%;
+    }
+    
+    .section .content h1 {
+      color: #fff;
+      font-size: 3rem;
+      max-width: 630px;
+      line-height: 65px;
+    }
+    
+    .section .search-form {
+      height: 48px;
+      display: flex;
+      max-width: 630px;
+      margin-top: 30px;
+    }
+    
+    .section .search-form input {
+      height: 100%;
+      width: 100%;
+      border: none;
+      outline: none;
+      padding: 0 15px;
+      font-size: 1rem;
+      border-radius: 4px 0 0 4px;
+    }
+    
+    .section .search-form button {
+      height: 100%;
+      width: 60px;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      background: #B69E87;
+      color: #fff;
+      border-radius: 0 4px 4px 0;
+      transition: background 0.2s ease;
+    }
+    
+    .section .search-form button:hover {
+      background: #b58777;
+    }
+    
+    .section .popular-tags {
+      display: flex;
+      color: #fff;
+      gap: 25px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      margin-top: 25px;
+    }
+    
+    .section .popular-tags .tags {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+      list-style: none;
+    }
+    
+    .section .tags li a {
+      text-decoration: none;
+      color: #fff;
+      border: 1px solid #fff;
+      padding: 4px 12px;
+      border-radius: 50px;
+      transition: 0.2s ease;
+    }
+    
+    .section .tags li a:hover {
+      color: #000;
+      background: #fff;
+    }
+    
+    .navbar #hamburger-btn {
+      color: #fff;
+      cursor: pointer;
+      display: none;
+      font-size: 1.7rem;
+    }
+    
+    .navbar #close-menu-btn {
+      position: absolute;
+      display: none;
+      color: #000;
+      top: 20px;
+      right: 20px;
+      cursor: pointer;
+      font-size: 1.7rem;
+    }
+    
+    @media screen and (max-width: 900px) {
+      header.show-mobile-menu::before {
+        content: "";
+        height: 100%;
+        width: 100%;
+        position: fixed;
+        left: 0;
+        top: 0;
+        backdrop-filter: blur(5px);
+      }
+    
+      .navbar .menu-links {
+        height: 100vh;
+        max-width: 300px;
+        width: 100%;
+        background: #fff;
+        position: fixed;
+        left: -300px;
+        top: 0;
+        display: block;
+        padding: 75px 40px 0;
+        transition: left 0.2s ease;
+      }
+    
+      header.show-mobile-menu .navbar .menu-links {
+        left: 0;
+      }
+    
+      .navbar .menu-links li {
+        margin-bottom: 30px;
+      }
+    
+      .navbar .menu-links li a {
+        color: #000;
+        font-size: 1.1rem;
+      }
+    
+      .navbar .menu-links .join-btn a {
+        padding: 0;
+      }
+      .navbar .menu-links .join-btn  a:hover {
+        color: #61443a;
+        background: none;
+      }
+    
+      .navbar :is(#close-menu-btn, #hamburger-btn) {
+        display: block;
+      }
+      .abtus a:active{
+        color: #61443a;
+        background: none;
+      }
+      .joinn-btn {
+        border:none;
+      padding: 8px 15px;
+      border-radius: 4px;
+      }
+    }
+    /* Add a fade-out effect on the current page */
+body {
+  transition: opacity 0.5s;
+}
+
+body.out {
+  opacity: 0;
+}
+
+/* Add a fade-in effect on the new page */
+body.in {
+  opacity: 1;
+  animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}   
+.contact-section {
+      background-color: #f7f7f7;
+      padding: 2em;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .contact-section .content {
+      max-width: 1280px;
+      margin: 0 auto 40px;
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .contact-form {
+      flex-basis: 50%;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+    }
+
+    .contact-form input, .contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .contact-form input[type="submit"] {
+      background-color: #B69E87;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .contact-form input[type="submit"]:hover {
+      background-color: #b58777;
+    }
+
+    .map {
+      flex-basis: 50%;
+      padding: 20px;
+    }
+
+    .map iframe {
+      width: 100%;
+      height: 300px;
+      border: none;
+    }
+     /* Logo container */
+     .navbar .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .navbar .logo img {
+      max-height: 50px; /* Adjust this to control the maximum height of the logo */
+      height: auto;
+      width: auto;
+      transition: max-height 0.3s ease;
+    }
+
+    /* Flex container for menu items */
+    .navbar .menu-links {
+      display: flex;
+      align-items: center;
+      list-style: none;
+      gap: 30px;
+    }
+    </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <img src="LOGO1.png" style="height: 80px;" alt="Logo" id="dynamic-logo">
+      </div>
+      <ul class="menu-links">
+        <li><a href="E-RUN WEBSITE.html">Home</a></li>
+        <li class="abtus"><a href="UpdateContent.html">About Us</a></li>
+        </div>
+        <li><a href="#">Contact Us</a></li>
+        <li class="joinn-btn"><a href="accform.html">Sign in</a></li>
+        <li class="join-btn"><a href="signup.html">Sign Up</a></li>
+        <span id="close-menu-btn" class="material-symbols-outlined">close</span>
+      </ul>
+      <span id="hamburger-btn" class="material-symbols-outlined">menu</span>
+    </nav>
+  </header>
+  <section class="section">
+    <div class="content">
+        <h2 style = color:#f7f7f7>Contact Us</h2>
+        <p style = color:#f7f7f7>Get in touch with us through the following channels:</p>
+        
+        <p style = color:#f7f7f7>Phone: 01234 567890</p>
+       
+        <p style = color:#f7f7f7>Email: [ERun@gmail.com]</p>
+        
+        <p style = color:#f7f7f7>Address: 123 Main St, Anytown, Philippines</p>
+        
+    </div>
+  </section>
+  
+  <script>
+    const header = document.querySelector("header");
+    const hamburgerBtn = document.querySelector("#hamburger-btn");
+    const closeMenuBtn = document.querySelector("#close-menu-btn");
+
+    // Toggle mobile menu on hamburger button click
+    hamburgerBtn.addEventListener("click", () => header.classList.toggle("show-mobile-menu"));
+
+    // Close mobile menu on close button click
+    closeMenuBtn.addEventListener("click", () => hamburgerBtn.click());
+
+    // Add an event listener to the link
+document.addEventListener('click', function(event) {
+  if (event.target.tagName === 'a') {
+    // Add the out class to the current page
+    document.body.classList.add('out');
+
+    // Wait for the animation to finish
+    setTimeout(function() {
+      // Remove the out class and add the in class to the new page
+      document.body.classList.remove('out');
+      document.body.classList.add('in');
+    }, 500);
+  }
+});
+// Add event listener to form submission
+document.querySelector('.contact-form form').addEventListener('submit', function(event) {
+      event.preventDefault();
+      // Handle form submission logic here
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Update Content</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;500;600;700&display=swap');
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Fira Sans', sans-serif;
+    }
+    body {
+      background-image: url("bg.png");
+    }
+    .section {
+      background-image: url('bg.png');
+      background-size: cover;
+      background-position: center;
+      padding: 2em;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .content {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 1em;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .image {
+      width: 400px;
+      height: 400px;
+      margin: 10px 0;
+      border-radius: 5px;
+      display: none;
+    }
+    .image.active {
+      display: block;
+    }
+    button {
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      background-color: #B69E87;
+      color: white;
+      cursor: pointer;
+      margin: 5px;
+    }
+    button:hover {
+      background-color: #A0686B;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <img src="LOGO1.png" style="height: 80px;" alt="Logo" id="dynamic-logo">
+      </div>
+      <ul class="menu-links">
+        <li><a href="E-RUN WEBSITE.html">Home</a></li>
+        <li class="abtus"><a href="UpdateContent.html">About Us</a></li>
+        <li><a href="ContactUs.html">Contact Us</a></li>
+        <li class="joinn-btn"><a href="accform.html">Sign in</a></li>
+        <li class="join-btn"><a href="signup.html">Sign Up</a></li>
+        <span id="close-menu-btn" class="material-symbols-outlined">close</span>
+      </ul>
+      <span id="hamburger-btn" class="material-symbols-outlined">menu</span>
+    </nav>
+  </header>
+
+  <section class="section">
+    <div class="content">
+      <!-- Images for carousel -->
+      <img src="123.jpg" alt="E-run Image" class="image active">
+      <img src="1234.png" alt="E-run Image" class="image">
+      <img src="12345.png" alt="E-run Image" class="image">
+
+      <!-- Buttons for navigation -->
+      <div>
+        <button id="prevBtn">Previous</button>
+        <button id="nextBtn">Next</button>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const images = document.querySelectorAll('.image');
+    let currentIndex = 0;
+
+    // Function to update the displayed image
+    function updateImage() {
+      images.forEach((img, index) => {
+        img.classList.remove('active'); // Hide all images
+        if (index === currentIndex) {
+          img.classList.add('active'); // Show the current image
+        }
+      });
+    }
+
+    // Previous button event listener
+    document.getElementById('prevBtn').addEventListener('click', () => {
+      currentIndex = (currentIndex > 0) ? currentIndex - 1 : images.length - 1; // Loop to last if at the start
+      updateImage();
+    });
+
+    // Next button event listener
+    document.getElementById('nextBtn').addEventListener('click', () => {
+      currentIndex = (currentIndex < images.length - 1) ? currentIndex + 1 : 0; // Loop to first if at the end
+      updateImage();
+    });
+
+    // Mobile menu toggle
+    const header = document.querySelector("header");
+    const hamburgerBtn = document.querySelector("#hamburger-btn");
+    const closeMenuBtn = document.querySelector("#close-menu-btn");
+
+    // Toggle mobile menu on hamburger button click
+    hamburgerBtn.addEventListener("click", () => header.classList.toggle("show-mobile-menu"));
+
+    // Close mobile menu on close button click
+    closeMenuBtn.addEventListener("click", () => hamburgerBtn.click());
+    
+    // Initialize the image display on page load
+    updateImage();
+  </script>
+</body>
+</html>

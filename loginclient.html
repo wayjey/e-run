@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Log in</title>
+ 
+  <style>
+   @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+      *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+      }
+      body{
+        min-height: 100vh;
+        width: 100%;
+        background-image: url("bg.png");
+      }
+      .container{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        max-width: 430px;
+        width: 100%;
+        background: #fff;
+        border-radius: 7px;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+      }
+      .container .registration{
+        display: none;
+      }
+      #check:checked ~ .registration{
+        display: block;
+      }
+      #check:checked ~ .login{
+        display: none;
+      }
+      #check{
+        display: none;
+      }
+      .container .form{
+        padding: 2rem;
+      }
+      .form header{
+        font-size: 2rem;
+        font-weight: 500;
+        text-align: center;
+        margin-bottom: 1.5rem;
+      }
+       .form input{
+         height: 60px;
+         width: 100%;
+         padding: 0 15px;
+         font-size: 17px;
+         margin-bottom: 1.3rem;
+         border: 1px solid #ddd;
+         border-radius: 6px;
+         outline: none;
+       }
+       .form input:focus{
+         box-shadow: 0 1px 0 rgba(0,0,0,0.2);
+       }
+      .form a{
+        font-size: 16px;
+        color: #009579;
+        text-decoration: none;
+      }
+      .form a:hover{
+        text-decoration: underline;
+      }
+      .form input.button{
+        color: #fff;
+        background: #a07261;
+        font-size: 1.2rem;
+        font-weight: 500;
+        letter-spacing: 1px;
+        margin-top: 1.7rem;
+        cursor: pointer;
+        transition: 0.4s;
+      }
+      .form input.button:hover{
+        background: #61443a;
+      }
+      .signup{
+        font-size: 17px;
+        text-align: center;
+      }
+      .signup label{
+        color: #009579;
+        cursor: pointer;
+      }
+      .signup label:hover{
+        text-decoration: underline;
+      }
+      .error {
+    color: red;
+    font-size: 12px;
+      }
+      .success {
+    color: green;
+    margin-top: 15px;
+    text-align: center;
+      }
+</style>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <input type="checkbox" id="check">
+    <div class="login form">
+      <header>Login</header>
+      <form id="contactForm" onsubmit="return validateForm()">
+        <div class="#">
+            <input type="text" id="email" placeholder="Enter your email">
+            <span class="error" id="emailError"></span>
+        </div>
+        <div class="#">
+            <input type="password" id="password" placeholder="Enter your password">
+            <span class="error" id="passwordError"></span>
+            <a href="#">Forgot password?</a>
+        </div>
+        <input type="submit" class="button" value="Signup"> 
+      </form>
+      
+      <div id="successMessage" class="success"></div>
+      <div class="signup">
+        <span class="signup">Already have an account?
+         <a href="login.html">Log in</a> 
+        </span>
+      </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    function validateForm() {
+            // Clear previous error messages
+            document.getElementById("emailError").innerText = "";
+            document.getElementById("passwordError").innerText = "";
+            document.getElementById("successMessage").innerText = "";
+    
+    const email = document.getElementById("email").value.trim();
+            const password = document.getElementById("password").value.trim();
+            
+            
+            let isValid = true;
+
+            // Validate Email
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(email)) {
+                document.getElementById("emailError").innerText = "Please enter a valid email.";
+                isValid = false;
+            }
+
+            // Validate Password
+            if (password === "") {
+                document.getElementById("passwordError").innerText = "Password is required.";
+                isValid = false;
+            } else if (password.length < 6) {
+                document.getElementById("passwordError").innerText = "Password must be at least 6 characters long.";
+                isValid = false;
+            }
+
+            // Validate Confirm Password
+            
+           // Display success message and redirect if all fields are valid
+          if (isValid) {
+            document.getElementById("successMessage").innerText = "Redirecting...";
+            setTimeout(() => {
+                window.location.href = "client.html"; // Change to your target HTML file
+            }, 2000); // Redirect after 2 seconds
+          }
+       
+          return false; // Prevent form submission for demonstration purposes
+        }   
+  </script>
+</body>
+</html>
